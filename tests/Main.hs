@@ -54,7 +54,36 @@ main = defaultMain $
     testCase "theta_d value 3" $ do
       let expected = 0.990723180697351 :+ (-0.012164484951676)
           obtained = theta_d z q''
+      assertApproxEqual "" 10 expected obtained,
+
+    testCase "theta_n value 1" $ do
+      let expected = 1.12730988168993 :+ 0.2469274015421
+          obtained = theta_n z q
+      assertApproxEqual "" 10 expected obtained,
+
+    testCase "theta_n value 2" $ do
+      let expected = 0.840008606084419 :+ 0.983570012237149
+          obtained = theta_n z q'
+      assertApproxEqual "" 10 expected obtained,
+
+    testCase "theta_n value 3" $ do
+      let expected = 1.00934637387594 :+ 0.01225569246714
+          obtained = theta_n z q''
+      assertApproxEqual "" 10 expected obtained,
+
+    testCase "theta_s value 1" $ do
+      let expected = 1.22039326540444 :+ 0.75990704701835
+          obtained = theta_s z q
+      assertApproxEqual "" 10 expected obtained,
+
+    testCase "theta_s value 2" $ do
+      let expected = 0.64321722963199 :+ 1.29438899072881
+          obtained = theta_s z q'
+      assertApproxEqual "" 10 expected obtained,
+
+    testCase "theta_s value 3" $ do
+      let expected = 1.29457805665579 :+ 0.64084576896851
+          obtained = theta_s z q''
       assertApproxEqual "" 10 expected obtained
 
   ]
-
