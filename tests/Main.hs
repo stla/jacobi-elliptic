@@ -3,7 +3,7 @@ import           Approx
 import           Data.Complex
 import           Math.NevilleTheta
 import           Test.Tasty       (defaultMain, testGroup)
-import           Test.Tasty.HUnit (assertEqual, testCase)
+import           Test.Tasty.HUnit (assertBool, testCase)
 
 i_ :: Complex Double
 i_ = 0.0 :+ 1.0
@@ -28,9 +28,6 @@ main = defaultMain $
   [ testCase "a theta_c value" $ do
       let expected = 0.902705416117337 :+ (-0.718974020880116)
           obtained = theta_c z q
-      assertEqual ""
-        (approx 10 obtained)
-        (approx 10 expected)
-
+      assertBool "" (approxEqual 10 expected obtained)
 
   ]
