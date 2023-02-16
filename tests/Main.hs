@@ -25,7 +25,8 @@ q'' = exp (i_ * pi * tau)
 main :: IO ()
 main = defaultMain $
   testGroup "Tests"
-  [ testCase "theta_c value 1" $ do
+  [ 
+    testCase "theta_c value 1" $ do
       let expected = 0.902705416117337 :+ (-0.718974020880116)
           obtained = theta_c z q
       assertApproxEqual "" 10 expected obtained,
@@ -38,6 +39,22 @@ main = defaultMain $
     testCase "theta_c value 3" $ do
       let expected = 0.838567437919619 :+ (-0.974584266572289)
           obtained = theta_c z q''
+      assertApproxEqual "" 10 expected obtained,
+
+    testCase "theta_d value 1" $ do
+      let expected = 0.892748081976972 :+ (-0.207593861225047)
+          obtained = theta_d z q
+      assertApproxEqual "" 10 expected obtained,
+
+    testCase "theta_d value 2" $ do
+      let expected = 0.999979735831711 :+ (-0.006366154721717)
+          obtained = theta_d z q'
+      assertApproxEqual "" 10 expected obtained,
+
+    testCase "theta_d value 3" $ do
+      let expected = 0.990723180697351 :+ (-0.012164484951676)
+          obtained = theta_d z q''
       assertApproxEqual "" 10 expected obtained
 
   ]
+
