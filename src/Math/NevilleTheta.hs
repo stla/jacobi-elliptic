@@ -6,9 +6,10 @@ import Math.JacobiTheta
 
 type Cplx = Complex Double
 
+-- | Neville theta-c function
 theta_c :: 
-     Cplx 
-  -> Cplx
+     Cplx -- ^ z
+  -> Cplx -- ^ q, the nome
   -> Cplx
 theta_c z q = 
   jtheta2 z' q / jtheta2 0 q
