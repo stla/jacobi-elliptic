@@ -15,7 +15,7 @@ q :: Complex Double
 q = exp (-pi)
 
 q' :: Complex Double 
-q' = exp (-pi/100)
+q' = exp (-pi/10)
 
 q'' :: Complex Double 
 q'' = exp (i_ * pi * tau)
@@ -32,7 +32,7 @@ main = defaultMain $
       assertApproxEqual "" 10 expected obtained,
 
     testCase "theta_c value 2" $ do
-      let expected = 0.999979735831711 :+ (-0.006366154721717)
+      let expected = 0.997974260633626 :+ (-0.063618983904188)
           obtained = theta_c z q'
       assertApproxEqual "" 10 expected obtained,
 
@@ -47,7 +47,7 @@ main = defaultMain $
       assertApproxEqual "" 10 expected obtained,
 
     testCase "theta_d value 2" $ do
-      let expected = 0.999979735831711 :+ (-0.006366154721717)
+      let expected = 0.997974260633412 :+ (-0.063618983903874)
           obtained = theta_d z q'
       assertApproxEqual "" 10 expected obtained,
 
@@ -62,7 +62,7 @@ main = defaultMain $
       assertApproxEqual "" 10 expected obtained,
 
     testCase "theta_n value 2" $ do
-      let expected = 0.840008606084419 :+ 0.983570012237149
+      let expected = 0.894953772623932 :+ 0.933853399701569
           obtained = theta_n z q'
       assertApproxEqual "" 10 expected obtained,
 
@@ -77,7 +77,7 @@ main = defaultMain $
       assertApproxEqual "" 10 expected obtained,
 
     testCase "theta_s value 2" $ do
-      let expected = 0.64321722963199 :+ 1.29438899072881
+      let expected = 0.7162841953585 :+ 1.25543148570321
           obtained = theta_s z q'
       assertApproxEqual "" 10 expected obtained,
 
