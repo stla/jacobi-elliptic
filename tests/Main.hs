@@ -84,6 +84,26 @@ main = defaultMain $
     testCase "theta_s value 3" $ do
       let expected = 1.29457805665579 :+ 0.64084576896851
           obtained = theta_s z q''
-      assertApproxEqual "" 10 expected obtained
+      assertApproxEqual "" 10 expected obtained,
+
+    testCase "a value of theta_c prime" $ do
+      let expected = -0.65900466676738154967
+          obtained = theta_c' 2.5 0.3
+      assertApproxEqual "" 15 expected obtained,
+
+    testCase "a value of theta_d prime" $ do
+      let expected = 0.95182196661267561994
+          obtained = theta_d' 2.5 0.3
+      assertApproxEqual "" 15 expected obtained,
+
+    testCase "a value of theta_n prime" $ do
+      let expected = 1.0526693354651613637
+          obtained = theta_n' 2.5 0.3
+      assertApproxEqual "" 14 expected obtained,
+
+    testCase "a value of theta_s prime" $ do
+      let expected = 0.82086879524530400536
+          obtained = theta_s' 2.5 0.3
+      assertApproxEqual "" 14 expected obtained
 
   ]
