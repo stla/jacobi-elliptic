@@ -3,7 +3,7 @@ import           Approx
 import           Data.Complex
 import           Math.NevilleTheta
 import           Test.Tasty       (defaultMain, testGroup)
-import           Test.Tasty.HUnit (assertBool, testCase)
+import           Test.Tasty.HUnit (testCase)
 
 i_ :: Complex Double
 i_ = 0.0 :+ 1.0
