@@ -1,9 +1,10 @@
 module Main where
-import           Approx
+import           Approx              (assertApproxEqual)
 import           Data.Complex
 import           Math.NevilleTheta
-import           Test.Tasty       (defaultMain, testGroup)
-import           Test.Tasty.HUnit (testCase)
+import           Math.JacobiElliptic
+import           Test.Tasty          (defaultMain, testGroup)
+import           Test.Tasty.HUnit    (testCase)
 
 i_ :: Complex Double
 i_ = 0.0 :+ 1.0
@@ -21,6 +22,13 @@ q'' :: Complex Double
 q'' = exp (i_ * pi * tau)
   where
     tau = 2.0 :+ 2.0
+
+u :: Complex Double
+u = 0.3 :+ 0.7
+
+m :: Complex Double
+m = 0.4 :+ 0.0
+
 
 main :: IO ()
 main = defaultMain $
@@ -104,6 +112,21 @@ main = defaultMain $
     testCase "a value of theta_s prime" $ do
       let expected = 0.82086879524530400536
           obtained = theta_s' 2.5 0.3
-      assertApproxEqual "" 14 expected obtained
+      assertApproxEqual "" 14 expected obtained,
+
+    testCase "jellip relation 1" $ do
+      let z1 = jellip' 'c' 'n' u m 
+          z2 = jellip' 'n' 'c' (i_ * u) (1 - m) 
+      assertApproxEqual "" 14 z1 z2, 
+
+    testCase "jellip relation 2" $ do
+      let z1 = jellip' 's' 'n' u m 
+          z2 = -i_ * jellip' 's' 'c' (i_ * u) (1 - m) 
+      assertApproxEqual "" 14 z1 z2, 
+
+    testCase "jellip relation 3" $ do
+      let z1 = jellip' 'd' 'n' u m 
+          z2 = jellip' 'd' 'c' (i_ * u) (1 - m) 
+      assertApproxEqual "" 14 z1 z2
 
   ]
