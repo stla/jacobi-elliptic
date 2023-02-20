@@ -1,5 +1,5 @@
 module Approx (assertApproxEqual) where
-import           Data.Complex     ( imagPart, magnitude, realPart, Complex(..) )
+import           Data.Complex     ( imagPart, realPart, Complex(..) )
 import           Test.Tasty.HUnit ( Assertion, assertEqual )
 
 -- round x to n digits
