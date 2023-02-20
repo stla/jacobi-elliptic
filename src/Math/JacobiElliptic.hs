@@ -2,8 +2,16 @@ module Math.JacobiElliptic
     ( jellip,
       jellip'
     ) where
-import Data.Complex
+import Data.Complex ( Complex )
 import Math.NevilleTheta
+    ( theta_c,
+      theta_d,
+      theta_n,
+      theta_s,
+      theta_c',
+      theta_d',
+      theta_n',
+      theta_s' )
 
 type Cplx = Complex Double
 

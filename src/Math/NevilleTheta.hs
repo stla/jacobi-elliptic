@@ -8,9 +8,10 @@ module Math.NevilleTheta
       theta_n',
       theta_s'
     ) where
-import Data.Complex
-import Math.EllipticIntegrals (ellipticF)
+import Data.Complex           ( Complex(..) )
+import Math.EllipticIntegrals ( ellipticF )
 import Math.JacobiTheta
+    ( jtheta1, jtheta1Dash, jtheta2, jtheta3, jtheta4 )
 
 type Cplx = Complex Double
 

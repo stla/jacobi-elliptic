@@ -1,10 +1,18 @@
 module Main where
-import           Approx              (assertApproxEqual)
-import           Data.Complex
+import           Approx               ( assertApproxEqual )
+import           Data.Complex         ( Complex(..) )
 import           Math.NevilleTheta
-import           Math.JacobiElliptic
-import           Test.Tasty          (defaultMain, testGroup)
-import           Test.Tasty.HUnit    (testCase)
+                                      ( theta_c,
+                                        theta_d,
+                                        theta_n,
+                                        theta_s,
+                                        theta_c',
+                                        theta_d',
+                                        theta_n',
+                                        theta_s' )
+import           Math.JacobiElliptic  ( jellip' )
+import           Test.Tasty           ( defaultMain, testGroup )
+import           Test.Tasty.HUnit     ( testCase )
 
 i_ :: Complex Double
 i_ = 0.0 :+ 1.0

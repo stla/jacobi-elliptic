@@ -1,6 +1,6 @@
-module Approx where
-import           Data.Complex
-import           Test.Tasty.HUnit (Assertion, assertEqual)
+module Approx (assertApproxEqual) where
+import           Data.Complex     ( imagPart, magnitude, realPart, Complex(..) )
+import           Test.Tasty.HUnit ( Assertion, assertEqual )
 
 -- round x to n digits
 approx0 :: Int -> Double -> Double
