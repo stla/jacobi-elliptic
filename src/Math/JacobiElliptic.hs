@@ -14,15 +14,14 @@ import Math.NevilleTheta
                             theta_n',
                             theta_s' )
 
-type Cplx = Complex Double
 
 -- | Jacobi elliptic function in terms of the nome.
 jellip :: 
      Char -- ^ a letter among 'c', 'd', 'n', 's' identifying the Neville function at the numerator
   -> Char -- ^ a letter among 'c', 'd', 'n', 's' identifying the Neville function at the denominator
-  -> Cplx -- ^ z, the variable
-  -> Cplx -- ^ q, the nome
-  -> Cplx
+  -> Complex Double -- ^ z, the variable
+  -> Complex Double -- ^ q, the nome
+  -> Complex Double
 jellip p q z nome = 
   theta_num z nome / theta_den z nome
   where
@@ -43,9 +42,9 @@ jellip p q z nome =
 jellip' :: 
      Char -- ^ a letter among 'c', 'd', 'n', 's' identifying the Neville function at the numerator
   -> Char -- ^ a letter among 'c', 'd', 'n', 's' identifying the Neville function at the denominator
-  -> Cplx -- ^ z, the variable
-  -> Cplx -- ^ m, the squared modulus
-  -> Cplx
+  -> Complex Double -- ^ z, the variable
+  -> Complex Double -- ^ m, the squared modulus
+  -> Complex Double
 jellip' p q z m = 
   theta_num z m / theta_den z m
   where
@@ -64,9 +63,9 @@ jellip' p q z m =
 
 -- | The amplitude function.
 am ::
-     Cplx -- ^ u, a complex number 
-  -> Cplx -- ^ m, the squared elliptic modulus
-  -> Cplx
+     Complex Double -- ^ u, a complex number 
+  -> Complex Double -- ^ m, the squared elliptic modulus
+  -> Complex Double
 am u m = fromInteger ((-1)^k) * w + k' * pi
   where
     k = round (realPart u / pi) + round (imagPart u / pi)

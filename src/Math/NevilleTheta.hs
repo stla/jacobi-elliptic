@@ -13,22 +13,21 @@ import Math.EllipticIntegrals ( ellipticF )
 import Math.JacobiTheta
     ( jtheta1, jtheta1Dash, jtheta2, jtheta3, jtheta4 )
 
-type Cplx = Complex Double
 
-i_ :: Cplx
+i_ :: Complex Double
 i_ = 0.0 :+ 1.0
 
-tauFromM :: Cplx -> Cplx
+tauFromM :: Complex Double -> Complex Double
 tauFromM m = i_ * ellipticF (pi/2) (1 - m) / ellipticF (pi/2) m
 
-nomeFromM :: Cplx -> Cplx
+nomeFromM :: Complex Double -> Complex Double
 nomeFromM m = exp (i_ * pi * tauFromM m)
 
 -- | Neville theta-c function in terms of the nome.
 theta_c :: 
-     Cplx -- ^ z
-  -> Cplx -- ^ q, the nome
-  -> Cplx
+     Complex Double -- ^ z
+  -> Complex Double -- ^ q, the nome
+  -> Complex Double
 theta_c z q = 
   jtheta2 z' q / jtheta2 0 q
   where
@@ -37,9 +36,9 @@ theta_c z q =
 
 -- | Neville theta-d function in terms of the nome.
 theta_d :: 
-     Cplx -- ^ z
-  -> Cplx -- ^ q, the nome
-  -> Cplx
+     Complex Double -- ^ z
+  -> Complex Double -- ^ q, the nome
+  -> Complex Double
 theta_d z q = 
   jtheta3 z' q / jtheta3 0 q
   where
@@ -48,9 +47,9 @@ theta_d z q =
 
 -- | Neville theta-n function in terms of the nome.
 theta_n :: 
-     Cplx -- ^ z
-  -> Cplx -- ^ q, the nome
-  -> Cplx
+     Complex Double -- ^ z
+  -> Complex Double -- ^ q, the nome
+  -> Complex Double
 theta_n z q = 
   jtheta4 z' q / jtheta4 0 q
   where
@@ -59,9 +58,9 @@ theta_n z q =
 
 -- | Neville theta-d function in terms of the nome.
 theta_s :: 
-     Cplx -- ^ z
-  -> Cplx -- ^ q, the nome
-  -> Cplx
+     Complex Double -- ^ z
+  -> Complex Double -- ^ q, the nome
+  -> Complex Double
 theta_s z q = 
   j3sq * jtheta1 z' q / jtheta1Dash 0 q
   where
@@ -71,28 +70,28 @@ theta_s z q =
 
 -- | Neville theta-c function in terms of the squared modulus.
 theta_c' :: 
-     Cplx -- ^ z
-  -> Cplx -- ^ m, the squared modulus
-  -> Cplx
+     Complex Double -- ^ z
+  -> Complex Double -- ^ m, the squared modulus
+  -> Complex Double
 theta_c' z m = theta_c z (nomeFromM m)
 
 -- | Neville theta-d function in terms of the squared modulus.
 theta_d' :: 
-     Cplx -- ^ z
-  -> Cplx -- ^ m, the squared modulus
-  -> Cplx
+     Complex Double -- ^ z
+  -> Complex Double -- ^ m, the squared modulus
+  -> Complex Double
 theta_d' z m = theta_d z (nomeFromM m)
 
 -- | Neville theta-n function in terms of the squared modulus.
 theta_n' :: 
-     Cplx -- ^ z
-  -> Cplx -- ^ m, the squared modulus
-  -> Cplx
+     Complex Double -- ^ z
+  -> Complex Double -- ^ m, the squared modulus
+  -> Complex Double
 theta_n' z m = theta_n z (nomeFromM m)
 
 -- | Neville theta-s function in terms of the squared modulus.
 theta_s' :: 
-     Cplx -- ^ z
-  -> Cplx -- ^ m, the squared modulus
-  -> Cplx
+     Complex Double -- ^ z
+  -> Complex Double -- ^ m, the squared modulus
+  -> Complex Double
 theta_s' z m = theta_s z (nomeFromM m)
