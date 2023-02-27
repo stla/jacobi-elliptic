@@ -139,9 +139,8 @@ main = defaultMain $
 
     testCase "amplitude function" $ do
       let phi = 1 :+ 1
-          m = 2
-          ell = ellipticF phi m
-          obtained = am ell m 
+          ell = ellipticF phi 2
+          obtained = am ell 2
       assertApproxEqual "" 14 obtained phi
 
   ]
