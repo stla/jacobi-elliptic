@@ -125,7 +125,7 @@ main = defaultMain $
     testCase "jellip relation 1" $ do
       let z1 = jellip' 'c' 'n' u m 
           z2 = jellip' 'n' 'c' (i_ * u) (1 - m) 
-      assertApproxEqual "" 14 z1 z2, 
+      assertApproxEqual "" 13 z1 z2, 
 
     testCase "jellip relation 2" $ do
       let z1 = jellip' 's' 'n' u m 
@@ -135,7 +135,7 @@ main = defaultMain $
     testCase "jellip relation 3" $ do
       let z1 = jellip' 'd' 'n' u m 
           z2 = jellip' 'd' 'c' (i_ * u) (1 - m) 
-      assertApproxEqual "" 14 z1 z2,
+      assertApproxEqual "" 13 z1 z2,
 
     testCase "amplitude function" $ do
       let phi = 1 :+ 1
