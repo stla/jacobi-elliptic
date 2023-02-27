@@ -1,18 +1,18 @@
 module Main where
-import           Approx               ( assertApproxEqual )
-import           Data.Complex         ( Complex(..) )
-import           Math.NevilleTheta
-                                      ( theta_c,
-                                        theta_d,
-                                        theta_n,
-                                        theta_s,
-                                        theta_c',
-                                        theta_d',
-                                        theta_n',
-                                        theta_s' )
-import           Math.JacobiElliptic  ( jellip' )
-import           Test.Tasty           ( defaultMain, testGroup )
-import           Test.Tasty.HUnit     ( testCase )
+import           Approx                 ( assertApproxEqual )
+import           Data.Complex           ( Complex(..) )
+import           Math.NevilleTheta      ( theta_c,
+                                          theta_d,
+                                          theta_n,
+                                          theta_s,
+                                          theta_c',
+                                          theta_d',
+                                          theta_n',
+                                          theta_s' )
+import           Math.EllipticIntegrals ( ellipticF )
+import           Math.JacobiElliptic    ( jellip', am )
+import           Test.Tasty             ( defaultMain, testGroup )
+import           Test.Tasty.HUnit       ( testCase )
 
 i_ :: Complex Double
 i_ = 0.0 :+ 1.0
@@ -135,6 +135,13 @@ main = defaultMain $
     testCase "jellip relation 3" $ do
       let z1 = jellip' 'd' 'n' u m 
           z2 = jellip' 'd' 'c' (i_ * u) (1 - m) 
-      assertApproxEqual "" 14 z1 z2
+      assertApproxEqual "" 14 z1 z2,
+
+    testCase "amplitude function" $ do
+      let phi = 1 :+ 1
+          m = 2
+          ell = ellipticF phi m
+          obtained = am ell m 
+      assertApproxEqual "" 14 obtained phi
 
   ]

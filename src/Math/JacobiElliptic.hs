@@ -1,17 +1,18 @@
 module Math.JacobiElliptic
     ( jellip,
-      jellip'
+      jellip',
+      am
     ) where
-import Data.Complex ( Complex )
+import Data.Complex       ( Complex, realPart, imagPart )
 import Math.NevilleTheta
-    ( theta_c,
-      theta_d,
-      theta_n,
-      theta_s,
-      theta_c',
-      theta_d',
-      theta_n',
-      theta_s' )
+                          ( theta_c,
+                            theta_d,
+                            theta_n,
+                            theta_s,
+                            theta_c',
+                            theta_d',
+                            theta_n',
+                            theta_s' )
 
 type Cplx = Complex Double
 
@@ -60,3 +61,14 @@ jellip' p q z m =
       'n' -> theta_n'
       's' -> theta_s'
       _   -> error "Invalid denominator identifier."
+
+-- | The amplitude function.
+am ::
+     Cplx -- ^ u, a complex number 
+  -> Cplx -- ^ m, the squared elliptic modulus
+  -> Cplx
+am u m = fromInteger ((-1)^k) * w + k' * pi
+  where
+    k = round (realPart u / pi) + round (imagPart u / pi)
+    k' = fromInteger k
+    w = asin (jellip' 's' 'n' u m)

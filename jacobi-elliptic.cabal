@@ -1,5 +1,5 @@
 name:                jacobi-elliptic
-version:             0.1.0.0
+version:             0.1.1.0
 synopsis:            Neville Theta Functions and Jacobi Elliptic Functions
 description:         Evaluation of the Neville theta functions and the Jacobi elliptic functions.
 homepage:            https://github.com/stla/jacobi-elliptic#readme
@@ -41,6 +41,7 @@ test-suite unit-tests
                       , tasty
                       , tasty-hunit
                       , jacobi-elliptic
+                      , elliptic-integrals
   Default-Language:     Haskell2010
 
 source-repository head
