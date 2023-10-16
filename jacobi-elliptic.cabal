@@ -1,5 +1,5 @@
 name:                jacobi-elliptic
-version:             0.1.1.0
+version:             0.1.2.0
 synopsis:            Neville Theta Functions and Jacobi Elliptic Functions
 description:         Evaluation of the Neville theta functions and the Jacobi elliptic functions.
 homepage:            https://github.com/stla/jacobi-elliptic#readme
@@ -19,7 +19,7 @@ library
   exposed-modules:     Math.NevilleTheta
                      , Math.JacobiElliptic
   build-depends:       base >= 4.7 && < 5
-                     , jacobi-theta >= 0.1.1.0
+                     , jacobi-theta >= 0.2.0.0
                      , elliptic-integrals >= 0.1.0.0
   default-language:    Haskell2010
   ghc-options:         -Wall
