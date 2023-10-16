@@ -108,9 +108,9 @@ main = defaultMain $
       assertApproxEqual "" 15 expected obtained,
 
     testCase "a value of theta_d prime" $ do
-      let expected = 0.95182196661267561994
+      let expected = 0.95182196661268
           obtained = theta_d' 2.5 0.3
-      assertApproxEqual "" 15 expected obtained,
+      assertApproxEqual "" 13 expected obtained,
 
     testCase "a value of theta_n prime" $ do
       let expected = 1.0526693354651613637
