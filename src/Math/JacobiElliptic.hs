@@ -1,3 +1,12 @@
+{-|
+Module      : Math.JacobiElliptic
+Description : Jacobi elliptic functions.
+Copyright   : (c) Stéphane Laurent, 2023
+License     : BSD3
+Maintainer  : laurent_step@outlook.fr
+
+Provides the Jacobi elliptic functions and the amplitude function.
+-}
 module Math.JacobiElliptic
     ( jellip,
       jellip',

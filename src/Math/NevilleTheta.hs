@@ -1,3 +1,12 @@
+{-|
+Module      : Math.NevilleTheta
+Description : Neville theta functions.
+Copyright   : (c) Stéphane Laurent, 2023
+License     : BSD3
+Maintainer  : laurent_step@outlook.fr
+
+Provides the theta Neville functions.
+-}
 module Math.NevilleTheta
     ( theta_c, 
       theta_d,
@@ -11,7 +20,7 @@ module Math.NevilleTheta
 import Data.Complex           ( Complex(..) )
 import Math.EllipticIntegrals ( ellipticF )
 import Math.JacobiTheta
-    ( jtheta1, jtheta1Dash, jtheta2, jtheta3, jtheta4 )
+    ( jtheta1, jtheta1Dash0, jtheta2, jtheta3, jtheta4 )
 
 
 i_ :: Complex Double
@@ -62,7 +71,7 @@ theta_s ::
   -> Complex Double -- ^ q, the nome
   -> Complex Double
 theta_s z q = 
-  j3sq * jtheta1 z' q / jtheta1Dash 0 q
+  j3sq * jtheta1 z' q / jtheta1Dash0 q
   where
     j3 = jtheta3 0 q
     j3sq = j3 * j3
